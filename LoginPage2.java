@@ -1,4 +1,3 @@
-
 import javafx.application.Application;
 import javafx.scene.layout.BorderPane;
 import javafx.geometry.Pos;
