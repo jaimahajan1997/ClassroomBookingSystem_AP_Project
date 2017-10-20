@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffff1f" height="400.0" stroke="BLACK" strokeType="INSIDE" width="640.0" />
+            <Text layoutX="220.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create Account">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="220.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../logo.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="134.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter IIITD Email- ">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text layoutX="137.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text layoutX="134.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Password-" wrappingWidth="94.79883193969727">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text layoutX="134.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Full Name-">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <MenuButton layoutX="237.0" layoutY="254.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="161.0" text="Select Type">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+                <MenuItem mnemonicParsing="false" text="Action 2" />
+              </items>
+            </MenuButton>
+            <Text layoutX="134.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter User Type-" wrappingWidth="94.79883193969727">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <TextField layoutX="237.0" layoutY="196.0" style="-fx-background-color: #ffffff;">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </TextField>
+            <TextField layoutX="237.0" layoutY="225.0" style="-fx-background-color: #ffffff;">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </TextField>
+            <TextField layoutX="237.0" layoutY="287.0" style="-fx-background-color: #ffffff;">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </TextField>
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>
