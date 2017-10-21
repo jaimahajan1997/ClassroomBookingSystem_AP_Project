@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="746.0" prefWidth="990.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/9.0.1" fx:controller="controller.Controller">
+   <children>
+      <ImageView fitHeight="745.0" fitWidth="1007.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@jeje.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="btn3" layoutX="112.0" layoutY="292.0" mnemonicParsing="false" onAction="#gotohomepage" prefHeight="90.0" prefWidth="256.0" text="Student">
+         <font>
+            <Font name="Verdana" size="46.0" />
+         </font>
+      </Button>
+      <Button layoutX="393.0" layoutY="292.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="227.0" text="Admin">
+         <font>
+            <Font name="Verdana" size="46.0" />
+         </font>
+      </Button>
+      <Button fx:id="btn4" layoutX="644.0" layoutY="292.0" mnemonicParsing="false" onAction="#gotofaculty" prefHeight="90.0" prefWidth="238.0" text="Faculty">
+         <font>
+            <Font name="Verdana" size="46.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
