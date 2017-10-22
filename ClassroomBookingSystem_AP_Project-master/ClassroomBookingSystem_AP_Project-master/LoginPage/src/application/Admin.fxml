@@ -29,7 +29,7 @@
             <Button layoutX="94.0" layoutY="123.0" mnemonicParsing="false" text="viewAvailability" />
             <Button layoutX="95.0" layoutY="228.0" mnemonicParsing="false" text="cancelBooking" />
             <Button layoutX="413.0" layoutY="228.0" mnemonicParsing="false" text="AllCourses" />
-            <Button layoutX="540.0" layoutY="343.0" mnemonicParsing="false" text="Logout" />
+            <Button layoutX="540.0" layoutY="343.0" mnemonicParsing="false" text="Logout" /> 
             <Button layoutX="412.0" layoutY="123.0" mnemonicParsing="false" text="RequestResponse" />
             <Button layoutX="412.0" layoutY="178.0" mnemonicParsing="false" text="DisplayAllSlots" />
             <ImageView fitHeight="68.0" fitWidth="152.0" layoutX="234.0" layoutY="157.0" pickOnBounds="true" preserveRatio="true">

@@ -20,24 +20,24 @@
             <Font size="18.0" />
           </font>
         </Label>
-            <Text layoutX="104.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You have successfully logged in as an Admin !">
+            <Text layoutX="104.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You have successfully logged in as a Student !">
                <font>
                   <Font name="Bodoni MT" size="26.0" />
                </font>
             </Text>
-            <Button layoutX="93.0" layoutY="178.0" mnemonicParsing="false" text="bookRoom" />
+            <Button layoutX="93.0" layoutY="178.0" mnemonicParsing="false" text="requestBooking" />
             <Button layoutX="94.0" layoutY="123.0" mnemonicParsing="false" text="viewAvailability" />
-            <Button layoutX="95.0" layoutY="228.0" mnemonicParsing="false" text="cancelBooking" />
-            <Button layoutX="413.0" layoutY="228.0" mnemonicParsing="false" text="AllCourses" />
+            <Button layoutX="95.0" layoutY="228.0" mnemonicParsing="false" text="checkClash" />
+            <Button layoutX="413.0" layoutY="228.0" mnemonicParsing="false" text="selectCourse" />
             <Button layoutX="540.0" layoutY="343.0" mnemonicParsing="false" text="Logout" />
-            <Button layoutX="412.0" layoutY="123.0" mnemonicParsing="false" text="RequestResponse" />
-            <Button layoutX="412.0" layoutY="178.0" mnemonicParsing="false" text="DisplayAllSlots" />
-            <ImageView fitHeight="68.0" fitWidth="152.0" layoutX="234.0" layoutY="157.0" pickOnBounds="true" preserveRatio="true">
+            <Button layoutX="412.0" layoutY="123.0" mnemonicParsing="false" text="My TimeTable" />
+            <Button layoutX="412.0" layoutY="178.0" mnemonicParsing="false" text="MyCourses" />
+            <ImageView fitHeight="71.0" fitWidth="155.0" layoutX="232.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@logo.png" />
                </image>
             </ImageView>
-            <Button fx:id="b5" layoutX="603.0" layoutY="14.0" mnemonicParsing="false" onAction="#goback5" text="Back" />
+            <Button fx:id="b3" layoutX="601.0" layoutY="14.0" mnemonicParsing="false" onAction="#goback3" text="Back" />
       </children>
     </AnchorPane>
   </children>

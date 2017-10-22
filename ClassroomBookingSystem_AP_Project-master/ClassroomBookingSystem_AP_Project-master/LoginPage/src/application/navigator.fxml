@@ -20,24 +20,24 @@
             <Font size="18.0" />
           </font>
         </Label>
-            <Text layoutX="104.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You have successfully logged in as an Admin !">
+            <Text layoutX="186.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Static GUI Navigator" wrappingWidth="245.859375">
                <font>
                   <Font name="Bodoni MT" size="26.0" />
                </font>
             </Text>
-            <Button layoutX="93.0" layoutY="178.0" mnemonicParsing="false" text="bookRoom" />
-            <Button layoutX="94.0" layoutY="123.0" mnemonicParsing="false" text="viewAvailability" />
-            <Button layoutX="95.0" layoutY="228.0" mnemonicParsing="false" text="cancelBooking" />
-            <Button layoutX="413.0" layoutY="228.0" mnemonicParsing="false" text="AllCourses" />
-            <Button layoutX="540.0" layoutY="343.0" mnemonicParsing="false" text="Logout" />
-            <Button layoutX="412.0" layoutY="123.0" mnemonicParsing="false" text="RequestResponse" />
-            <Button layoutX="412.0" layoutY="178.0" mnemonicParsing="false" text="DisplayAllSlots" />
+            <Button fx:id="btn1" layoutX="95.0" layoutY="110.0" mnemonicParsing="false" onAction="#gotologin" text="LoginPage" />
+            <Button fx:id="btn4" layoutX="95.0" layoutY="178.0" mnemonicParsing="false" onAction="#gotofaculty" text="FacultyPage" />
+            <Button fx:id="btn2" layoutX="244.0" layoutY="110.0" mnemonicParsing="false" onAction="#gotoregister" text="RegisterPage" />
+            <Button layoutX="95.0" layoutY="252.0" mnemonicParsing="false" text="SlotBookingPage" />
+            <Button layoutX="244.0" layoutY="252.0" mnemonicParsing="false" text="CoursesPage" />
+            <Button fx:id="btn3" layoutX="404.0" layoutY="110.0" mnemonicParsing="false" onAction="#gotoadmin" text="AdminPage" />
+            <Button fx:id="btn5" layoutX="401.0" layoutY="178.0" mnemonicParsing="false" onAction="#gotostudent" text="StudentPage" />
             <ImageView fitHeight="68.0" fitWidth="152.0" layoutX="234.0" layoutY="157.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@logo.png" />
                </image>
             </ImageView>
-            <Button fx:id="b5" layoutX="603.0" layoutY="14.0" mnemonicParsing="false" onAction="#goback5" text="Back" />
+            <Button layoutX="400.0" layoutY="252.0" mnemonicParsing="false" text="PersonalizedTimeTablePage" />
       </children>
     </AnchorPane>
   </children>

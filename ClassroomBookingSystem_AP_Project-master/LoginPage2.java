@@ -1,4 +1,4 @@
-mport javafx.application.Application;
+import javafx.application.Application;
 import javafx.scene.layout.BorderPane;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;

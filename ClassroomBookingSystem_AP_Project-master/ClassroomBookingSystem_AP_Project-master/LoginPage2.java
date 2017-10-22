@@ -1,6 +1,4 @@
-package ProjectCode;
-
-import javafx.application.Application;
+mport javafx.application.Application;
 import javafx.scene.layout.BorderPane;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -27,7 +25,7 @@ import javafx.scene.image.ImageView;
 import javafx.event.*;
 import javafx.scene.control.ChoiceBox;
 import javafx.collections.FXCollections;
-public class LoginPage extends Application
+public class A extends Application
 {
 		public static void main(String[] args)
 		{
@@ -43,7 +41,7 @@ public class LoginPage extends Application
 	    	grid.setVgap(10);
 	    	grid.setPadding(new Insets(25, 25, 25, 25));
 	    	
-			Image image = new Image("File:C:\\Users\\Raghav\\Desktop\\logo.jpg");
+			Image image = new Image("File:C:\\Users\\jaima\\Desktop\\logo.png");
 			ImageView imageView=new ImageView(image);
 			imageView.setFitHeight(200);
 			imageView.setFitWidth(600);
@@ -84,7 +82,7 @@ public class LoginPage extends Application
 	    	    	VBox m=new VBox();
 	    	    	
 //	    	    	border.setStyle("-fx-background-color: #11c6bd;");
-	    			Image image = new Image("File:C:\\Users\\Raghav\\Desktop\\logo.jpg");
+	    			Image image = new Image("File:C:\\Users\\jaima\\Desktop\\logo.png");
 	    			ImageView imageView=new ImageView(image);
 	    			imageView.setFitHeight(275);
 	    			imageView.setFitWidth(350);
@@ -113,31 +111,11 @@ public class LoginPage extends Application
 	    	    	myID.setFont(Font.font("Tohema", FontWeight.NORMAL, 25));
 
 	    	    	m.getChildren().addAll(User1,user2,mytype,myID);
-	    	    	
-	    	    	
-	    	    	
-	    	    	
+	    	
 	    	    	border.setLeft(m);
-	    	    	
-	    	    	
-	    	    	
-	    	    	
-	    	    	
-	    	    	
-	    	    	
-	    	    	
-	    	    	
-	    	    	
-	    	    	
-	    	    	
-	    	    	
-	    	    	
-	    	    	
-	    	    	
+	    	
 	    			primaryStage.setScene(scenic);
-	    			
-	    			
-	    	        
+	  
 	    	    }
 	    	});
 		
@@ -160,7 +138,7 @@ public class LoginPage extends Application
 	    	    	grid.setVgap(10);
 	    	    	grid.setPadding(new Insets(25, 25, 25, 25));
 	    	    	
-	    	    	Image image = new Image("File:C:\\Users\\Raghav\\Desktop\\logo.jpg");
+	    	    	Image image = new Image("File:C:\\Users\\jaima\\Desktop\\logo.png");
 	    			ImageView imageView=new ImageView(image);
 	    			imageView.setFitHeight(200);
 	    			imageView.setFitWidth(400);
@@ -224,7 +202,7 @@ public class LoginPage extends Application
 	    	    			GridPane grid1 = new GridPane();
 	    	    	    	grid1.setHgap(10);
 	    	    	    	grid1.setVgap(10);
-	    	    	    	Image image = new Image("File:C:\\Users\\Raghav\\Desktop\\logo.jpg");
+	    	    	    	Image image = new Image("File:C:\\Users\\jaima\\Desktop\\logo.png");
 	    	    			ImageView imageView=new ImageView(image);
 	    	    			imageView.setFitHeight(200);
 	    	    			imageView.setFitWidth(400);
@@ -250,10 +228,6 @@ public class LoginPage extends Application
 	    	    }
 	    	});
 		
-	    	
-	    	
-	    	
-
 	    	Scene scene = new Scene(grid, 100, 100,Color.RED);
 	    	primaryStage.setScene(scene);
 			primaryStage.setHeight(1000);
