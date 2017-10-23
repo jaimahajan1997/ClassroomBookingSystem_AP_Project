@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Cursor?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -26,15 +26,17 @@
             <Font name="Verdana" size="18.0" />
          </font>
       </Button>
-      <Label layoutX="116.0" layoutY="75.0" prefHeight="134.0" prefWidth="801.0" text="Request Booking" textFill="WHITE">
+      <Label layoutX="56.0" layoutY="29.0" prefHeight="134.0" prefWidth="801.0" text="View Responses" textFill="WHITE">
          <font>
             <Font name="Colonna MT" size="96.0" />
          </font>
       </Label>
-      <GridPane alignment="CENTER" layoutX="68.0" layoutY="197.0" prefHeight="478.0" prefWidth="849.0">
+      <GridPane alignment="CENTER" gridLinesVisible="true" hgap="2.0" layoutX="68.0" layoutY="197.0" prefHeight="478.0" prefWidth="849.0" style="-fx-background-color: white;" vgap="2.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
@@ -45,46 +47,55 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="bt6" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="264.0" mnemonicParsing="false" onAction="#requestbooking" prefHeight="80.0" prefWidth="213.0" text="Submit Request" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
-               <effect>
-                  <ColorAdjust brightness="-0.16" />
-               </effect>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="99.0" stroke="BLACK" strokeType="INSIDE" width="853.0" />
+            <Text fill="#ffec73" strokeType="OUTSIDE" strokeWidth="0.0" text="Room Number " textAlignment="CENTER" wrappingWidth="166.13670349121094">
                <font>
-                  <Font name="Verdana" size="18.0" />
+                  <Font name="System Bold" size="22.0" />
                </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
+            </Text>
+            <Text fill="#ffec73" strokeType="OUTSIDE" strokeWidth="0.0" text="Time Slot" textAlignment="CENTER" wrappingWidth="194.13665771484375" GridPane.columnIndex="1">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Text>
+            <Text fill="#ffec73" strokeType="OUTSIDE" strokeWidth="0.0" text="Date (dd/mm/yy)" textAlignment="CENTER" wrappingWidth="154.1366424560547" GridPane.columnIndex="2">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Text>
+            <Text fill="#ffec73" strokeType="OUTSIDE" strokeWidth="0.0" text="Purpose" textAlignment="CENTER" wrappingWidth="192.53674173355103" GridPane.columnIndex="3">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Text>
+            <Text fill="#ffec73" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm Booking" textAlignment="CENTER" wrappingWidth="154.1366424560547" GridPane.columnIndex="4">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Text>
+            <Button mnemonicParsing="false" prefHeight="36.0" prefWidth="168.0" text="Confirm Booking" GridPane.columnIndex="4" GridPane.rowIndex="4">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
             </Button>
-            <TextField prefHeight="54.0" prefWidth="283.0" GridPane.columnIndex="1" />
-            <Text fill="#ffec73" strokeType="OUTSIDE" strokeWidth="0.0" text="Room Number " textAlignment="CENTER" wrappingWidth="282.93670654296875">
-               <font>
-                  <Font name="System Bold" size="22.0" />
-               </font>
-            </Text>
-            <Text fill="#ffec73" strokeType="OUTSIDE" strokeWidth="0.0" text="              Time Slot                (24 hour format-Hrs:Mins)" textAlignment="CENTER" wrappingWidth="282.93670654296875" GridPane.rowIndex="1">
-               <font>
-                  <Font name="System Bold" size="22.0" />
-               </font>
-            </Text>
-            <TextField prefHeight="54.0" prefWidth="283.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Text fill="#ffec73" strokeType="OUTSIDE" strokeWidth="0.0" text="Room Number " textAlignment="CENTER" wrappingWidth="282.93670654296875">
-               <font>
-                  <Font name="System Bold" size="22.0" />
-               </font>
-            </Text>
-            <Text fill="#ffec73" strokeType="OUTSIDE" strokeWidth="0.0" text="Date (dd/mm/yy)" textAlignment="CENTER" wrappingWidth="282.93670654296875" GridPane.rowIndex="2">
-               <font>
-                  <Font name="System Bold" size="22.0" />
-               </font>
-            </Text>
-            <Text fill="#ffec73" strokeType="OUTSIDE" strokeWidth="0.0" text="Purpose" textAlignment="CENTER" wrappingWidth="282.93670654296875" GridPane.rowIndex="3">
-               <font>
-                  <Font name="System Bold" size="22.0" />
-               </font>
-            </Text>
-            <TextField prefHeight="54.0" prefWidth="283.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField prefHeight="54.0" prefWidth="283.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <CheckBox mnemonicParsing="false" GridPane.columnIndex="4" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="70.0" />
+               </GridPane.margin>
+            </CheckBox>
+            <CheckBox mnemonicParsing="false" GridPane.columnIndex="4" GridPane.rowIndex="2">
+               <padding>
+                  <Insets left="70.0" />
+               </padding>
+               <GridPane.margin>
+                  <Insets bottom="130.0" />
+               </GridPane.margin>
+            </CheckBox>
+            <CheckBox mnemonicParsing="false" GridPane.columnIndex="4" GridPane.rowIndex="3">
+               <padding>
+                  <Insets bottom="130.0" left="70.0" />
+               </padding>
+            </CheckBox>
          </children>
       </GridPane>
       <Button layoutX="764.0" layoutY="61.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="86.0" text="Back">

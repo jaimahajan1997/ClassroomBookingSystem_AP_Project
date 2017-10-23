@@ -65,6 +65,11 @@
                   <Font name="Verdana" size="18.0" />
                </font>
             </MenuButton>
+            <Button layoutX="843.0" layoutY="46.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="86.0" text="Back">
+               <font>
+                  <Font name="Verdana" size="18.0" />
+               </font>
+            </Button>
          </children>
     </AnchorPane>
   </children>

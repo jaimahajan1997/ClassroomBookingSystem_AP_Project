@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controller">
+   <children>
+      <ImageView fitHeight="791.0" fitWidth="1085.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@jeje.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="215.0" layoutY="79.0" prefHeight="134.0" prefWidth="801.0" text="My TimeTable" textFill="WHITE">
+         <font>
+            <Font name="Colonna MT" size="96.0" />
+         </font>
+      </Label>
+      <GridPane gridLinesVisible="true" hgap="5.0" layoutX="88.0" layoutY="213.0" prefHeight="404.0" prefWidth="848.0" style="-fx-background-color: #ffffff;" vgap="5.0" AnchorPane.bottomAnchor="174.0" AnchorPane.leftAnchor="88.0" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="213.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="385.4000244140625" minWidth="10.0" prefWidth="159.3999816894531" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="733.4000091552734" minWidth="0.0" prefWidth="144.00002441406247" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="733.4000091552734" minWidth="0.0" prefWidth="143.59998779296876" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="733.4000091552734" minWidth="3.0" prefWidth="164.59995117187498" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="733.4000091552734" minWidth="0.0" prefWidth="133.40004882812502" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label style="-fx-background-color: #ffffff;" text="MONDAY" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="Verdana" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="27.0" layoutY="24.0" style="-fx-background-color: #ffffff;" text="SUNDAY" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="Verdana" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="11.0" layoutY="24.0" style="-fx-background-color: #ffffff;" text="SATURDAY" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="Verdana" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="11.0" layoutY="24.0" style="-fx-background-color: #ffffff;" text="FRIDAY" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="Verdana" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="11.0" layoutY="24.0" style="-fx-background-color: #ffffff;" text="THURSDAY" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="Verdana" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="11.0" layoutY="24.0" style="-fx-background-color: #ffffff;" text="WEDNESDAY" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="Verdana" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="11.0" layoutY="24.0" style="-fx-background-color: #ffffff;" text="TUESDAY" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="Verdana" size="18.0" />
+               </font>
+            </Label>
+            <Label text="NT 9-10am" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Label text="AP 9:30-11am" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Label layoutX="144.0" layoutY="92.0" text="NT 9-10am" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+            <Label layoutX="144.0" layoutY="154.0" text="AP 9:30-11am" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+            <Label text="NT 9-10am" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+            <Label text="AP 9:30-11am" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+            <Label text="IMS 3-4:30pm" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Label text="M3 11-12 noon" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Label text="CO 10-11am" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+            <Label text="IMS 3-4:30pm" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+            <Label text="CO 5-6pm" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Label text="IMS 3-4:30pm" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Label text="M3 11-12 noon" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Label text="CO 10-11am" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+            <Label text="M3 11-12 noon" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+            <Label text="CO 10-11am" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+         </children>
+      </GridPane>
+      <Button layoutX="829.0" layoutY="53.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="86.0" text="Back">
+         <font>
+            <Font name="Verdana" size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

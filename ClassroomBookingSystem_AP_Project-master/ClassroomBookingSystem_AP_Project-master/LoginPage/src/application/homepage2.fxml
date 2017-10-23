@@ -32,7 +32,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="80.0" prefWidth="213.0" text="Select A Course" textOverrun="CENTER_ELLIPSIS" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Button fx:id="btn18" alignment="CENTER" contentDisplay="CENTER" layoutX="35.0" layoutY="28.0" mnemonicParsing="false" onAction="#timetable" prefHeight="80.0" prefWidth="213.0" text="View TimeTable" textOverrun="CENTER_ELLIPSIS" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <effect>
                   <ColorAdjust brightness="-0.16" />
                </effect>
@@ -43,7 +43,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="35.0" layoutY="28.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="213.0" text="View TimeTable" textOverrun="CENTER_ELLIPSIS" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <Button fx:id="btn16" alignment="CENTER" contentDisplay="CENTER" layoutX="298.0" layoutY="28.0" mnemonicParsing="false" onAction="#bookroom" prefHeight="80.0" prefWidth="213.0" text="Book A Room" textOverrun="CENTER_ELLIPSIS" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <effect>
                   <ColorAdjust brightness="-0.16" />
                </effect>
@@ -54,7 +54,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="298.0" layoutY="28.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="213.0" text="Book A Room" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Button fx:id="btn9" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="146.0" mnemonicParsing="false" onAction="#viewbookings2" prefHeight="80.0" prefWidth="213.0" text="View Room Bookings" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <effect>
                   <ColorAdjust brightness="-0.16" />
                </effect>
@@ -65,7 +65,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="btn9" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="146.0" mnemonicParsing="false" onAction="#viewbookings2" prefHeight="80.0" prefWidth="213.0" text="View Room Bookings" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Button fx:id="btn19" alignment="CENTER" contentDisplay="CENTER" layoutX="273.0" layoutY="146.0" mnemonicParsing="false" onAction="#profile" prefHeight="80.0" prefWidth="213.0" text="My Profile" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <effect>
                   <ColorAdjust brightness="-0.16" />
                </effect>
@@ -76,7 +76,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="273.0" layoutY="146.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="213.0" text="My Profile" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <Button fx:id="btn20" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="264.0" mnemonicParsing="false" onAction="#cpassword" prefHeight="80.0" prefWidth="213.0" text="Change Password" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <effect>
                   <ColorAdjust brightness="-0.16" />
                </effect>
@@ -87,18 +87,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="264.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="213.0" text="Change Password" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
-               <effect>
-                  <ColorAdjust brightness="-0.16" />
-               </effect>
-               <font>
-                  <Font name="Verdana" size="18.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="328.0" layoutY="209.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="213.0" text="My Courses" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <Button fx:id="btn17" alignment="CENTER" contentDisplay="CENTER" layoutX="328.0" layoutY="209.0" mnemonicParsing="false" onAction="#courses" prefHeight="80.0" prefWidth="213.0" text="My Courses" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <effect>
                   <ColorAdjust brightness="-0.16" />
                </effect>
@@ -117,6 +106,11 @@
          </font>
       </Label>
       <Button fx:id="btn2" layoutX="858.0" layoutY="61.0" mnemonicParsing="false" onAction="#gotopage_1" prefHeight="17.0" prefWidth="86.0" text="Logout">
+         <font>
+            <Font name="Verdana" size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="763.0" layoutY="61.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="86.0" text="Back">
          <font>
             <Font name="Verdana" size="18.0" />
          </font>
