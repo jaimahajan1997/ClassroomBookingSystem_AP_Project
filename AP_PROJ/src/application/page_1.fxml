@@ -18,13 +18,13 @@
                   <Image url="@logo.jpg" />
                </image>
             </ImageView>
-            <TextField layoutX="232.0" layoutY="313.0" prefHeight="38.0" prefWidth="565.0" promptText="USERID">
+            <TextField fx:id="t1" layoutX="232.0" layoutY="313.0" prefHeight="38.0" prefWidth="565.0" promptText="USERID">
                <font>
                   <Font name="Verdana" size="12.0" />
                </font>
             </TextField>
-            <PasswordField layoutX="230.0" layoutY="373.0" prefHeight="38.0" prefWidth="566.0" promptText="PASSWORD" />
-            <Button fx:id="btn5" layoutX="464.0" layoutY="450.0" mnemonicParsing="false" onAction="#gototype" text="SIGN IN">
+            <PasswordField fx:id="t2" layoutX="230.0" layoutY="373.0" prefHeight="38.0" prefWidth="566.0" promptText="PASSWORD" />
+            <Button fx:id="btn0" layoutX="464.0" layoutY="450.0" mnemonicParsing="false" onAction="#signin" text="SIGN IN">
                <font>
                   <Font name="Verdana" size="18.0" />
                </font>
