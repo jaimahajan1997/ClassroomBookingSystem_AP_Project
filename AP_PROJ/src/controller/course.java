@@ -4,59 +4,48 @@ import java.util.*;
 public class course implements Serializable {
 
 	private String title;
-	private ArrayList<String> post=new ArrayList<String>(25);
-	private ArrayList<String> preReq=new ArrayList<String>(25);
-	private ArrayList<String> instr=new ArrayList<String>(25);
+	public static Map<String,course> coursemap=new HashMap<String,course>();
+	private String post;
+	private String preReq;
+	private String instr;
 	private String acronym;
 	private String code;
-	private int credits;
-	private ArrayList<String> openfor=new ArrayList<String>(25);
-	public course(String t,String acr, String cd, int crd)
+	private String credits;
+	private String mon;
+	private String tues;
+	private String wed;
+	private String thurs;
+	private String fri;
+	private String tut;
+	private String lab;
+
+	public course(String type,String name,String code,String instructor,String credits,String acronym,String monday,String tuesday,String wednesday,String thursday,String friday,String tut,String lab,String pre,String post)
 	{
-		title=t;
-		acronym=acr;
-		code=cd;
-		credits=crd;
+		title=name;
+		this.acronym=acronym;
+		this.code=code;
+		this.credits=credits;
+		this.preReq=pre;
+		this.post=post;
+		this.instr=instructor;
+		this.mon=monday;
+		tues=tuesday;
+		wed=wednesday;
+		thurs=thursday;
+		fri=friday;
+		this.tut=tut;
+		this.lab=lab;
+		
 	}
-	public void add_post(String m)
-	{
-		post.add(m);
-	}
-	public void add_preReq(String m)
-	{
-		preReq.add(m);
-	}
-	public void add_instr(String m)
-	{
-		instr.add(m);
-	}
-	public void  add_openfor(String m)
-	{
-		openfor.add(m);
-	}
+	
 	public String getTitle() {
 		return title;
 	}
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public ArrayList<String> getPost() {
-		return post;
-	}
-	public void setPost(ArrayList<String> post) {
-		this.post = post;
-	}
-	public ArrayList<String> getPreReq() {
-		return preReq;
-	}
-	public void setPreReq(ArrayList<String> preReq) {
-		this.preReq = preReq;
-	}
-	public ArrayList<String> getInstr() {
+	public String getInst() {
 		return instr;
-	}
-	public void setInstr(ArrayList<String> instr) {
-		this.instr = instr;
 	}
 	public String getAcronym() {
 		return acronym;
@@ -70,17 +59,39 @@ public class course implements Serializable {
 	public void setCode(String code) {
 		this.code = code;
 	}
-	public int getCredits() {
+	public String getCredits() {
 		return credits;
 	}
-	public void setCredits(int credits) {
+	public String getMon() {
+		return mon;
+	}
+	public String getTues() {
+		return tues;
+	}
+	public String getWed() {
+		return wed;
+	}
+	public String getThurs() {
+		return thurs;
+	}
+	public String getFri() {
+		return fri;
+	}
+	public String getTut() {
+		return tut;
+	}
+	public String getLab() {
+		return lab;
+	}
+	public String getPre() {
+		return preReq;
+	}
+	public String getPost() {
+		return post;
+	}
+	public void setCredits(String credits) {
 		this.credits = credits;
 	}
-	public ArrayList<String> getOpenfor() {
-		return openfor;
-	}
-	public void setOpenfor(ArrayList<String> openfor) {
-		this.openfor = openfor;
-	}
+	
 	
 }
