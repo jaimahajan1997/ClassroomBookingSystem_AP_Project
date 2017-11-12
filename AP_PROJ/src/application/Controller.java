@@ -318,7 +318,7 @@ public class Controller implements Initializable {
 		  
 		
 	}
-	
+	//FOR VIEWING PROFILE
 	@FXML
 	private Button viewprofile;
 	@FXML
@@ -330,16 +330,72 @@ public class Controller implements Initializable {
 	
 	public void lookatmyprofile(ActionEvent event) throws IOException  
 	{
-
-//		  myid.setText(current.getUserID());
-
-		  //myname.setText("raghav");
 		  Parent root = FXMLLoader.load(getClass().getResource("/application/MyProfile.fxml"));
 		  Scene scene = new Scene(root);
 		  Main.primaryStage.setScene(scene);
 
 		
 	}
+	//FOR CHANGING PASSWORD
+	@FXML
+	private Button submitnewpassword;
+	@FXML
+	private TextField old;
+	@FXML
+	private TextField new1;
+	@FXML
+	private TextField new2;
+	public void resetpassword(ActionEvent event) throws IOException 
+	{
+		if(old.getText().equals("") || new1.getText().equals("") || new2.getText().equals(""))
+		{
+			showerrorbox("All Fields Mandatory","Please fill all fields");
+		}
+		else
+		{
+			if(old.getText().equals(current.getPassword()))
+			{
+				if(new1.getText().equals(new2.getText()))
+				{
+					  current.setPassword(new1.getText());
+					  user.serialize();
+				      if(current.getUtype()=='s')
+				      {
+						  Parent root = FXMLLoader.load(getClass().getResource("/application/homepage.fxml"));
+						  Scene scene = new Scene(root);
+						  Main.primaryStage.setScene(scene);
+				    	  
+				      }
+				      else if(current.getUtype()=='f')
+				      {
+						  Parent root = FXMLLoader.load(getClass().getResource("/application/homepage2.fxml"));
+						  Scene scene = new Scene(root);
+						  Main.primaryStage.setScene(scene);
+				      }
+				      else
+				      {
+						  Parent root = FXMLLoader.load(getClass().getResource("/application/homepage3.fxml"));
+						  Scene scene = new Scene(root);
+						  Main.primaryStage.setScene(scene);
+				      }
+
+				}
+				else
+				{
+					showerrorbox("Password Field Error","New Password fields do not match");
+				}
+			}
+			else
+			{	
+				showerrorbox("Wrong Password","Old Password entered is invalid");
+			}
+		}
+		
+	}
+	
+	
+	
+	
 	@FXML
 	private Button btn3;
 	
@@ -390,25 +446,6 @@ public class Controller implements Initializable {
 		  //Main.primaryStage.show();
 		
 	}
-	
-//	@FXML
-//	private Button btn14;
-//
-//	public void profile(ActionEvent event) throws IOException  {
-//		// Node node=(Node) event.getSource();
-//		   //Main.primaryStage=(Stage) node.getScene().getWindow();
-//		  Parent root = FXMLLoader.load(getClass().getResource("/application/MyProfile.fxml"));
-//		  Scene scene = new Scene(root);
-//		  Main.primaryStage.setScene(scene);
-//		  //Main.primaryStage.setFullScreen(true);
-//		  //Main.primaryStage.show();
-//		
-//	}
-	
-	
-
-	
-	
 	
 	
 	@FXML
@@ -632,6 +669,18 @@ public class Controller implements Initializable {
 	public void register(ActionEvent event) throws IOException  {
 		
 		
+	}
+	//FOR ERROR BOX
+	public static void showerrorbox(String s1,String s2)
+	{
+        Alert a = new Alert(AlertType.INFORMATION);
+        a.setTitle("Error");
+        a.setHeaderText(s1);
+        a.setResizable(true);
+        String version = System.getProperty("java.version");
+        String content = String.format(s2, version);
+        a.setContentText(content);
+        a.showAndWait();
 	}
 	
 	
