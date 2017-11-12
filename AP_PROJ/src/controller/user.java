@@ -9,6 +9,19 @@ public class user implements Serializable
 	private String userID;
 	private char utype;
 	private String password;
+	public static void init() throws ClassNotFoundException, IOException
+	{
+		ObjectInputStream in=null;	
+		try	{	
+						in=new ObjectInputStream(new FileInputStream("C:\\Users\\Raghav\\workspace\\AP_PROJ\\src\\application\\Users\\userlist.txt"));	
+						Map<String,user> map=new HashMap<String,user>();
+						userList=(Map)in.readObject();											
+		}	
+		finally	
+		{	
+						in.close();	
+		}
+	}
 	public static void serialize() throws IOException
 	{
 		ObjectOutputStream out = null;
@@ -20,17 +33,28 @@ public class user implements Serializable
 			out.close();
 		}
 	}
-//	public static user deserialize() throws IOException,ClassNotFoundException
-//	{
-//		ObjectInputStream out = null;
-//		try{
-//			out = new ObjectInputStream(new FileInputStream("user"));
-//			out.writeObject(u);
-//		}
-//		finally{
-//			out.close();
-//		}
-//	}
+	public static user getuser(String m1)
+	{	
+			return userList.get(m1);
+										
+
+	}
+	
+	public static boolean deserialize(String m1)  
+	{
+		if(userList.size()!=0)
+		{
+									if(userList.containsKey(m1))
+									{
+										return false;
+									}
+									return true;
+		}
+		else
+		{
+			return true;
+		}
+	}
 	public user(String f,String l, String uid, char ut, String pass )
 	{
 		fname=f;
@@ -41,7 +65,7 @@ public class user implements Serializable
 		userList.put(this.userID,this);
 		try
 		{
-		serialize();
+			serialize();
 		}
 		catch(IOException e)
 		{
