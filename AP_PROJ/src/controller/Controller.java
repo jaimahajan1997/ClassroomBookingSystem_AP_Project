@@ -1,9 +1,16 @@
 package controller;
 
+import java.awt.List;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
+import javafx.scene.text.Text;
+import javafx.scene.control.Label;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import application.Main;
@@ -15,18 +22,37 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.application.Application;
+import javafx.beans.property.ReadOnlyObjectWrapper;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 
 public class Controller implements Initializable {
+	public static user current=null;
 	public static int i=0;
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) 
+
 	{
-		// TODO Auto-generated method stub
+		if(current!=null)
+		{
+			myname.setText(current.getFname()+" "+current.getLname());
+			myid.setText(current.getUserID());
+			  if(current.getUtype()=='s')
+			  {mytype.setText("Student");}
+			  else if(current.getUtype()=='f')
+			  {mytype.setText("Faculty");}
+			  else
+			  {mytype.setText("Admin");}
+			
+		}
 		
 	}
 	@FXML
@@ -35,7 +61,7 @@ public class Controller implements Initializable {
 	private TextField t1;
 	@FXML
 	private TextField t2;
-	
+	//FOR SIGNIN
 	public void signin(ActionEvent event) throws IOException,ClassNotFoundException  
 	{
 //		for (Entry<String, user> entry : user.userList.entrySet()) {
@@ -74,7 +100,7 @@ public class Controller implements Initializable {
 			{
 		        Alert a = new Alert(AlertType.INFORMATION);
 		        a.setTitle("Error");
-		        a.setHeaderText("wron credentials");
+		        a.setHeaderText("Wrong credentials");
 		        a.setResizable(true);
 		        String version = System.getProperty("java.version");
 		        String content = String.format("Invalid email id or password", version);
@@ -84,6 +110,7 @@ public class Controller implements Initializable {
 			}
 		 else
 		 {
+			 current=p;
 	      if(p.getUtype()=='s')
 	      {
 			  Parent root = FXMLLoader.load(getClass().getResource("/application/homepage.fxml"));
@@ -302,6 +329,28 @@ public class Controller implements Initializable {
 		  
 		
 	}
+	
+	@FXML
+	private Button viewprofile;
+	@FXML
+	private Label myname=new Label();
+	@FXML
+	private Label myid=new Label();
+	@FXML
+	private Label mytype=new Label();
+	
+	public void lookatmyprofile(ActionEvent event) throws IOException  
+	{
+
+//		  myid.setText(current.getUserID());
+
+		  //myname.setText("raghav");
+		  Parent root = FXMLLoader.load(getClass().getResource("/application/MyProfile.fxml"));
+		  Scene scene = new Scene(root);
+		  Main.primaryStage.setScene(scene);
+
+		
+	}
 	@FXML
 	private Button btn3;
 	
@@ -352,6 +401,27 @@ public class Controller implements Initializable {
 		  //Main.primaryStage.show();
 		
 	}
+	
+//	@FXML
+//	private Button btn14;
+//
+//	public void profile(ActionEvent event) throws IOException  {
+//		// Node node=(Node) event.getSource();
+//		   //Main.primaryStage=(Stage) node.getScene().getWindow();
+//		  Parent root = FXMLLoader.load(getClass().getResource("/application/MyProfile.fxml"));
+//		  Scene scene = new Scene(root);
+//		  Main.primaryStage.setScene(scene);
+//		  //Main.primaryStage.setFullScreen(true);
+//		  //Main.primaryStage.show();
+//		
+//	}
+	
+	
+
+	
+	
+	
+	
 	@FXML
 	private Button btn6;
 	
@@ -453,22 +523,11 @@ public class Controller implements Initializable {
 		  //Main.primaryStage.show();
 		
 	}
-	@FXML
-	private Button btn14;
+
 	@FXML
 	private Button btn19;
 	@FXML
 	private Button btn25;
-	public void profile(ActionEvent event) throws IOException  {
-		// Node node=(Node) event.getSource();
-		   //Main.primaryStage=(Stage) node.getScene().getWindow();
-		  Parent root = FXMLLoader.load(getClass().getResource("/application/MyProfile.fxml"));
-		  Scene scene = new Scene(root);
-		  Main.primaryStage.setScene(scene);
-		  //Main.primaryStage.setFullScreen(true);
-		  //Main.primaryStage.show();
-		
-	}
 	@FXML
 	private Button btn15;
 	@FXML
@@ -578,6 +637,7 @@ public class Controller implements Initializable {
 		
 	}
 	
+	
 	@FXML
 	private Button RegButton;
 	
@@ -586,6 +646,94 @@ public class Controller implements Initializable {
 		
 	}
 	
+	//Newww displaying courses
 	
+	@FXML
+	private Button jbtn1;
+	@FXML TableView<ObservableList<String>> tableView;
+	public void course(ActionEvent event) throws IOException {
+		
+	String csvFile = "C:\\Users\\jaima\\Desktop\\AP_PROJ\\src\\application\\courses\\courses.csv";
+     String line = "";
+     String delimeter = ",";
+     ArrayList<String[]> ll=new ArrayList<String[]>();
+     try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
 
+         while ((line = br.readLine()) != null) {
+
+             String[] c = line.split(delimeter);
+             try {
+             //System.out.println(c[0]+" "+c[2]+" "+c[3]+" "+c[4]+" "+c[5]+" "+c[6]+" "+c[7]+" "+c[8]+" "+c[9]+" "+c[10]+" "+c[11]+" "+c[12]+" "+c[13]+" "+c[14]+" \n");
+             course add=new course(c[0],c[1],c[2],c[3],c[4],c[5],c[6],c[7],c[8],c[9],c[10],c[11],c[12],c[13],c[14]);
+             add.coursemap.put(c[2],add );
+             String s=((c[0]+","+c[2]+","+c[3]+","+c[4]+","+c[5]+","+c[6]+","+c[7]+","+c[8]+","+c[9]+","+c[10]+","+c[11]+","+c[12]+","+c[13]+","+c[14]));
+             ll.add(s.split(","));
+             }
+             catch(Exception e){
+            	 break;
+             }
+         }
+
+     } catch (Exception e) {
+         e.printStackTrace();
+     }
+     //System.out.println(ll.get(0)[1]);
+	
+		
+	    String rows[] = null;
+	    String columnvals[] = null;
+
+	    ArrayList<String> columns = new ArrayList<String>();
+	    ObservableList<ObservableList<String>> coursesfulldata = FXCollections.observableArrayList();
+
+	       
+	             
+	                int i = 0;
+
+	                while ((i<ll.size())) {
+	                	try {
+	                    if (i < 1) {
+	                        rows = ll.get(i);
+	                        for (String w : rows) {
+	                            columns.add(w);
+
+	                        }
+	                        for (int ii = 0; ii < columns.size(); ii++) {
+	                            final int finalIdx = ii;
+	                            TableColumn<ObservableList<String>, String> column = new TableColumn<>(columns.get(ii));
+	                            //System.out.println(finalIdx+" "+columns);
+	                            if(finalIdx<15) {
+	                            	tableView.setColumnResizePolicy((param) -> true );
+	                            column.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().get(finalIdx)));
+	                            }
+
+	                            tableView.getColumns().add(column);
+	                        }
+
+	                    } else {
+	                        ObservableList<String> row = FXCollections.observableArrayList();
+	                        row.clear();
+	                        columnvals =  ll.get(i);
+	                        for (String item : columnvals) {
+	                            row.add(item);
+	                        }
+	                        coursesfulldata.add(row);
+	                    }
+	                    i++;
+
+	                }
+	                	
+	                	catch (Exception e) {
+	    	                ;
+	    	            }
+
+	                	
+	                
+	                tableView.setItems(coursesfulldata);
+
+	            } 
+	       
+
+	    
+	}
 }
