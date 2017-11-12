@@ -30,6 +30,88 @@ public class Controller implements Initializable {
 		
 	}
 	@FXML
+	private Button btn0;
+	@FXML 
+	private TextField t1;
+	@FXML
+	private TextField t2;
+	
+	public void signin(ActionEvent event) throws IOException,ClassNotFoundException  
+	{
+//		for (Entry<String, user> entry : user.userList.entrySet()) {
+//		    System.out.println(entry.getKey()+" : "+entry.getValue());
+//		}
+		 Node node=(Node) event.getSource();
+		 Main.primaryStage=(Stage) node.getScene().getWindow();
+		  //Main.primaryStage.setFullScreen(true);
+		 if(t1.getText().equals("")||t2.getText().equals(""))
+		 {
+		        Alert a = new Alert(AlertType.INFORMATION);
+		        a.setTitle("Error");
+		        a.setHeaderText("All fields Mandatory");
+		        a.setResizable(true);
+		        String version = System.getProperty("java.version");
+		        String content = String.format("Please fill all fields", version);
+		        a.setContentText(content);
+		        a.showAndWait();
+		 }
+		 else if(user.deserialize(t1.getText())==true)
+		 {
+		        Alert a = new Alert(AlertType.INFORMATION);
+		        a.setTitle("Error");
+		        a.setHeaderText("Wrong credentials");
+		        a.setResizable(true);
+		        String version = System.getProperty("java.version");
+		        String content = String.format("Invalid email id or password", version);
+		        a.setContentText(content);
+		        a.showAndWait();
+		        System.out.println("NO USER");
+		 }
+		 else if(user.deserialize(t1.getText())==false)
+		 {	
+			user p=user.getuser(t1.getText()); 
+			if (!p.getPassword().equals(t2.getText()))
+			{
+		        Alert a = new Alert(AlertType.INFORMATION);
+		        a.setTitle("Error");
+		        a.setHeaderText("wron credentials");
+		        a.setResizable(true);
+		        String version = System.getProperty("java.version");
+		        String content = String.format("Invalid email id or password", version);
+		        a.setContentText(content);
+		        a.showAndWait();
+		        System.out.println("wrong pass");
+			}
+		 else
+		 {
+	      if(p.getUtype()=='s')
+	      {
+			  Parent root = FXMLLoader.load(getClass().getResource("/application/homepage.fxml"));
+			  Scene scene = new Scene(root);
+			  Main.primaryStage.setScene(scene);
+	    	  
+	      }
+	      else if(p.getUtype()=='f')
+	      {
+			  Parent root = FXMLLoader.load(getClass().getResource("/application/homepage2.fxml"));
+			  Scene scene = new Scene(root);
+			  Main.primaryStage.setScene(scene);
+	      }
+	      else
+	      {
+			  Parent root = FXMLLoader.load(getClass().getResource("/application/homepage3.fxml"));
+			  Scene scene = new Scene(root);
+			  Main.primaryStage.setScene(scene);
+	      }
+
+		  ////Main.primaryStage.show();
+		 }
+		 }
+		
+	}
+	
+	
+	@FXML
 	private Button btn1;
 	
 	public void gotoRegister(ActionEvent event) throws IOException  {
@@ -58,7 +140,7 @@ public class Controller implements Initializable {
 
 	
 
-	public void gotopage_1(ActionEvent event) throws IOException  
+	public void gotopage_1(ActionEvent event) throws IOException,ClassNotFoundException 
 	{
 		if(txt1.getText().equals("") || txt2.getText().equals("") || txt3.getText().equals("") || txt4.getText().equals(""))
 		{
@@ -73,6 +155,8 @@ public class Controller implements Initializable {
 		}
 		else
 		{
+		  if (user.deserialize(txt3.getText()))
+		  {
 		  user newbie=new student(txt1.getText(),txt2.getText(),txt3.getText(),'s',txt4.getText());
 		  
 		  //user.serialize(newbie);
@@ -80,6 +164,18 @@ public class Controller implements Initializable {
 		  Parent root = FXMLLoader.load(getClass().getResource("/application/page_1.fxml"));
 		  Scene scene = new Scene(root);
 		  Main.primaryStage.setScene(scene);
+		  }
+		  else
+		  {
+		        Alert a = new Alert(AlertType.INFORMATION);
+		        a.setTitle("Error");
+		        a.setHeaderText("Invalid email");
+		        a.setResizable(true);
+		        String version = System.getProperty("java.version");
+		        String content = String.format("There is already an account associated with this email", version);
+		        a.setContentText(content);
+		        a.showAndWait();
+		  }
 		}
 		  
 		
@@ -98,7 +194,7 @@ public class Controller implements Initializable {
 
 	
 
-	public void gotopage_j1(ActionEvent event) throws IOException  
+	public void gotopage_j1(ActionEvent event) throws IOException,ClassNotFoundException  
 	{
 
 		if(txtj1.getText().equals("") || txtj2.getText().equals("") || txtj3.getText().equals("") || txtj4.getText().equals(""))
@@ -114,6 +210,8 @@ public class Controller implements Initializable {
 		}
 		else
 		{
+			if (user.deserialize(txtj3.getText()))
+			{
 		  user newbie=new faculty(txtj1.getText(),txtj2.getText(),txtj3.getText(),'f',txtj4.getText());
 		  
 		  //user.serialize(newbie);
@@ -121,6 +219,19 @@ public class Controller implements Initializable {
 		  Parent root = FXMLLoader.load(getClass().getResource("/application/page_1.fxml"));
 		  Scene scene = new Scene(root);
 		  Main.primaryStage.setScene(scene);
+		}
+		  else
+		  {
+		        Alert a = new Alert(AlertType.INFORMATION);
+		        a.setTitle("Error");
+		        a.setHeaderText("Invalid email");
+		        a.setResizable(true);
+		        String version = System.getProperty("java.version");
+		        String content = String.format("There is already an account associated with this email", version);
+		        a.setContentText(content);
+		        a.showAndWait();
+		  }
+		  
 		}
 		  
 		
@@ -140,7 +251,7 @@ public class Controller implements Initializable {
 
 	
 	//Register button for admin
-	public void gotopage_i1(ActionEvent event) throws IOException  
+	public void gotopage_i1(ActionEvent event) throws IOException , ClassNotFoundException 
 	{
 		if(txti1.getText().equals("") || txti2.getText().equals("") || txti3.getText().equals("") || txti4.getText().equals(""))
 		{
@@ -155,7 +266,7 @@ public class Controller implements Initializable {
 		}
 		else
 		{
-		  if(txti4.getText().equals("iamadmin"))
+		  if(txti4.getText().equals("iamadmin") && user.deserialize(txti3.getText())==true)
 		  {
 			  user newbie=new admin(txti1.getText(),txti2.getText(),txti3.getText(),'a',txti4.getText());
 			  //user.serialize(newbie);
@@ -165,7 +276,7 @@ public class Controller implements Initializable {
 			  Main.primaryStage.setScene(scene);
 			  
 		  }
-		  else
+		  else if(!txti4.getText().equals("iamadmin"))
 		  {
 		        Alert a = new Alert(AlertType.INFORMATION);
 		        a.setTitle("Error");
@@ -173,6 +284,17 @@ public class Controller implements Initializable {
 		        a.setResizable(true);
 		        String version = System.getProperty("java.version");
 		        String content = String.format("Reenter Admin Credentials to create account", version);
+		        a.setContentText(content);
+		        a.showAndWait();
+		  }
+		  else
+		  {
+		        Alert a = new Alert(AlertType.INFORMATION);
+		        a.setTitle("Error");
+		        a.setHeaderText("Invalid email");
+		        a.setResizable(true);
+		        String version = System.getProperty("java.version");
+		        String content = String.format("There is already an account associated with this email", version);
 		        a.setContentText(content);
 		        a.showAndWait();
 		  }
