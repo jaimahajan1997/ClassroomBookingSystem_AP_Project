@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import javafx.scene.text.Text;
+import javafx.scene.control.Label;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import java.net.URL;
@@ -22,13 +24,109 @@ import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
 
 public class Controller implements Initializable {
+	public static user current=null;
 	public static int i=0;
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) 
+
 	{
-		// TODO Auto-generated method stub
+		if(current!=null)
+		{
+			myname.setText(current.getFname()+" "+current.getLname());
+			myid.setText(current.getUserID());
+			  if(current.getUtype()=='s')
+			  {mytype.setText("Student");}
+			  else if(current.getUtype()=='f')
+			  {mytype.setText("Faculty");}
+			  else
+			  {mytype.setText("Admin");}
+			
+		}
 		
 	}
+	@FXML
+	private Button btn0;
+	@FXML 
+	private TextField t1;
+	@FXML
+	private TextField t2;
+	//FOR SIGNIN
+	public void signin(ActionEvent event) throws IOException,ClassNotFoundException  
+	{
+//		for (Entry<String, user> entry : user.userList.entrySet()) {
+//		    System.out.println(entry.getKey()+" : "+entry.getValue());
+//		}
+		 Node node=(Node) event.getSource();
+		 Main.primaryStage=(Stage) node.getScene().getWindow();
+		  //Main.primaryStage.setFullScreen(true);
+		 if(t1.getText().equals("")||t2.getText().equals(""))
+		 {
+		        Alert a = new Alert(AlertType.INFORMATION);
+		        a.setTitle("Error");
+		        a.setHeaderText("All fields Mandatory");
+		        a.setResizable(true);
+		        String version = System.getProperty("java.version");
+		        String content = String.format("Please fill all fields", version);
+		        a.setContentText(content);
+		        a.showAndWait();
+		 }
+		 else if(user.deserialize(t1.getText())==true)
+		 {
+		        Alert a = new Alert(AlertType.INFORMATION);
+		        a.setTitle("Error");
+		        a.setHeaderText("Wrong credentials");
+		        a.setResizable(true);
+		        String version = System.getProperty("java.version");
+		        String content = String.format("Invalid email id or password", version);
+		        a.setContentText(content);
+		        a.showAndWait();
+		        System.out.println("NO USER");
+		 }
+		 else if(user.deserialize(t1.getText())==false)
+		 {	
+			user p=user.getuser(t1.getText()); 
+			if (!p.getPassword().equals(t2.getText()))
+			{
+		        Alert a = new Alert(AlertType.INFORMATION);
+		        a.setTitle("Error");
+		        a.setHeaderText("Wrong credentials");
+		        a.setResizable(true);
+		        String version = System.getProperty("java.version");
+		        String content = String.format("Invalid email id or password", version);
+		        a.setContentText(content);
+		        a.showAndWait();
+		        System.out.println("wrong pass");
+			}
+		 else
+		 {
+			 current=p;
+	      if(p.getUtype()=='s')
+	      {
+			  Parent root = FXMLLoader.load(getClass().getResource("/application/homepage.fxml"));
+			  Scene scene = new Scene(root);
+			  Main.primaryStage.setScene(scene);
+	    	  
+	      }
+	      else if(p.getUtype()=='f')
+	      {
+			  Parent root = FXMLLoader.load(getClass().getResource("/application/homepage2.fxml"));
+			  Scene scene = new Scene(root);
+			  Main.primaryStage.setScene(scene);
+	      }
+	      else
+	      {
+			  Parent root = FXMLLoader.load(getClass().getResource("/application/homepage3.fxml"));
+			  Scene scene = new Scene(root);
+			  Main.primaryStage.setScene(scene);
+	      }
+
+		  ////Main.primaryStage.show();
+		 }
+		 }
+		
+	}
+	
+	
 	@FXML
 	private Button btn1;
 	
@@ -220,6 +318,28 @@ public class Controller implements Initializable {
 		  
 		
 	}
+	
+	@FXML
+	private Button viewprofile;
+	@FXML
+	private Label myname=new Label();
+	@FXML
+	private Label myid=new Label();
+	@FXML
+	private Label mytype=new Label();
+	
+	public void lookatmyprofile(ActionEvent event) throws IOException  
+	{
+
+//		  myid.setText(current.getUserID());
+
+		  //myname.setText("raghav");
+		  Parent root = FXMLLoader.load(getClass().getResource("/application/MyProfile.fxml"));
+		  Scene scene = new Scene(root);
+		  Main.primaryStage.setScene(scene);
+
+		
+	}
 	@FXML
 	private Button btn3;
 	
@@ -270,6 +390,27 @@ public class Controller implements Initializable {
 		  //Main.primaryStage.show();
 		
 	}
+	
+//	@FXML
+//	private Button btn14;
+//
+//	public void profile(ActionEvent event) throws IOException  {
+//		// Node node=(Node) event.getSource();
+//		   //Main.primaryStage=(Stage) node.getScene().getWindow();
+//		  Parent root = FXMLLoader.load(getClass().getResource("/application/MyProfile.fxml"));
+//		  Scene scene = new Scene(root);
+//		  Main.primaryStage.setScene(scene);
+//		  //Main.primaryStage.setFullScreen(true);
+//		  //Main.primaryStage.show();
+//		
+//	}
+	
+	
+
+	
+	
+	
+	
 	@FXML
 	private Button btn6;
 	
@@ -371,22 +512,11 @@ public class Controller implements Initializable {
 		  //Main.primaryStage.show();
 		
 	}
-	@FXML
-	private Button btn14;
+
 	@FXML
 	private Button btn19;
 	@FXML
 	private Button btn25;
-	public void profile(ActionEvent event) throws IOException  {
-		// Node node=(Node) event.getSource();
-		   //Main.primaryStage=(Stage) node.getScene().getWindow();
-		  Parent root = FXMLLoader.load(getClass().getResource("/application/MyProfile.fxml"));
-		  Scene scene = new Scene(root);
-		  Main.primaryStage.setScene(scene);
-		  //Main.primaryStage.setFullScreen(true);
-		  //Main.primaryStage.show();
-		
-	}
 	@FXML
 	private Button btn15;
 	@FXML
