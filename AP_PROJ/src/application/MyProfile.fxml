@@ -33,7 +33,7 @@
                   <Font name="Verdana" size="28.0" />
                </font>
             </Label>
-            <Button layoutX="822.0" layoutY="45.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="86.0" text="Back">
+            <Button fx:id="goback" layoutX="822.0" layoutY="45.0" mnemonicParsing="false" onAction="#gotolast" prefHeight="17.0" prefWidth="86.0" text="Back">
                <font>
                   <Font name="Verdana" size="18.0" />
                </font>
