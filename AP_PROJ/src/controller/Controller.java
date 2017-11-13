@@ -12,7 +12,7 @@ import javafx.scene.control.Alert.AlertType;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-
+//Sources-https://stackoverflow.com/questions/37559584/how-to-add-dynamic-columns-and-rows-to-tableview-in-java-fxml,https://www.mkyong.com/java/how-to-read-and-parse-csv-file-in-java/
 import application.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -647,7 +647,27 @@ public class Controller implements Initializable {
 	}
 	
 	//Newww displaying courses
-	
+	@FXML
+	private Button add;
+	@FXML
+	private Button drop;
+	@FXML 
+	private TextField addordrop;
+	public void addcourse(ActionEvent event) throws IOException {
+		if(current.myCourses.size()<6) {
+			System.out.println(addordrop.getText()+" added");
+		current.myCourses.add(addordrop.getText());}
+		else {
+			System.out.println("max course limit exceeded");
+		}
+	}
+public void dropcourse(ActionEvent event) throws IOException {
+		for(String i:current.myCourses) {
+			if (i.toLowerCase().equals(addordrop.getText().toLowerCase())) {
+				current.myCourses.remove(i);
+			}
+		}
+	}
 	@FXML
 	private Button jbtn1;
 	@FXML TableView<ObservableList<String>> tableView;
@@ -658,20 +678,24 @@ public class Controller implements Initializable {
      String delimeter = ",";
      ArrayList<String[]> ll=new ArrayList<String[]>();
      try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
-
-         while ((line = br.readLine()) != null) {
+int cc=0;
+         while ((line = br.readLine()) != null && cc<17) {
 
              String[] c = line.split(delimeter);
-             try {
+             //System.out.println(cc);
+             
+              {
              //System.out.println(c[0]+" "+c[2]+" "+c[3]+" "+c[4]+" "+c[5]+" "+c[6]+" "+c[7]+" "+c[8]+" "+c[9]+" "+c[10]+" "+c[11]+" "+c[12]+" "+c[13]+" "+c[14]+" \n");
-             course add=new course(c[0],c[1],c[2],c[3],c[4],c[5],c[6],c[7],c[8],c[9],c[10],c[11],c[12],c[13],c[14]);
-             add.coursemap.put(c[2],add );
+             
              String s=((c[0]+","+c[2]+","+c[3]+","+c[4]+","+c[5]+","+c[6]+","+c[7]+","+c[8]+","+c[9]+","+c[10]+","+c[11]+","+c[12]+","+c[13]+","+c[14]));
              ll.add(s.split(","));
+             if (cc>=1){
+             course add=new course(c[0],c[1],c[2],c[3],c[4],c[5],c[6],c[7],c[8],c[9],c[10],c[11],c[12],c[13],c[14]);
+             course.coursemap.put(c[5], add);
              }
-             catch(Exception e){
-            	 break;
+             cc+=1;
              }
+             
          }
 
      } catch (Exception e) {
