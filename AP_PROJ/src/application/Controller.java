@@ -1,6 +1,13 @@
 package controller;
 
 import java.io.IOException;
+import java.util.*;
+import java.util.Date;
+import java.time.ZoneId;
+import java.time.LocalDate;
+import java.time.Instant;
+import javafx.scene.control.DatePicker;
+
 import javafx.scene.text.Text;
 import javafx.scene.control.Label;
 import javafx.scene.control.Alert;
@@ -16,12 +23,46 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
 import javafx.application.Application;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
+import java.awt.List;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import javafx.scene.text.Text;
+import javafx.scene.control.Label;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
+
+import application.Main;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.stage.Stage;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.application.Application;
+import javafx.beans.property.ReadOnlyObjectWrapper;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 
 public class Controller implements Initializable {
 	public static user current=null;
@@ -42,6 +83,29 @@ public class Controller implements Initializable {
 			  {mytype.setText("Admin");}
 			
 		}
+		ArrayList<String> list = new ArrayList<String>();
+		ArrayList<String> list2 = new ArrayList<String>();
+		list.add("C01");
+		list.add("C02");
+		list.add("C03");
+		list.add("C11");
+		list.add("C12");
+		list.add("C13");
+		
+		list2.add("Monday");
+		list2.add("Tuesday");
+		list2.add("Wednesday");
+		list2.add("Thursday");
+		list2.add("Friday");
+		list2.add("Saturday");
+		list2.add("Sunday");
+		
+		 ObservableList<String> roomchoice = FXCollections.observableList(list);
+		 ObservableList<String> daychoice = FXCollections.observableList(list2);
+		 roomno.setValue("C01");
+		 roomno.setItems(roomchoice);
+		 day.setValue("Monday");
+		 day.setItems(daychoice);
 		
 	}
 	@FXML
@@ -392,6 +456,89 @@ public class Controller implements Initializable {
 		}
 		
 	}
+	//For Requesting Booking
+	@FXML
+	private Button submitrequest;
+	@FXML
+	private ChoiceBox<String> roomno=new ChoiceBox<String>();
+	@FXML
+	private TextField purpose;
+	@FXML
+	private TextField starttime;
+	@FXML
+	private TextField endtime;
+	@FXML
+	private ChoiceBox<String> day=new ChoiceBox<String>();
+	public void makerequest(ActionEvent event) throws IOException 
+	{
+		if(endtime.getText().equals("") || starttime.getText().equals("")|| purpose.getText().equals("") )
+		{
+			showerrorbox("All Fields Mandatory","Please fill all fields");
+		}
+		else
+		{
+			try
+			{
+				int a=Integer.parseInt(starttime.getText());
+				int b=Integer.parseInt(endtime.getText());
+				if(a>=2400 || b>=2400 || a%100>59 || b%100>59)
+				{
+					showerrorbox("Time Format Error","Time must be between 0000 and 2359.");
+				}
+				else
+				{
+					if(a>=b)
+					{
+						showerrorbox("Duration Error","Minimum Duration is 30 mins.");
+					}
+					else
+					{
+						  Request m=new Request(roomno.getValue(),a,b,day.getValue());
+						  Parent root = FXMLLoader.load(getClass().getResource("/application/homepage.fxml"));
+						  Scene scene = new Scene(root);
+						  Main.primaryStage.setScene(scene);
+					}
+				}
+				
+				
+				
+			}
+			catch(Exception e)
+			{
+				showerrorbox("Illegal Time","Please enter time in given format");
+			}
+
+			
+		}
+	}
+	
+	
+	
+	//BACK BUTTON FOR INSIDE ACCOUNT
+	private Button goback;
+	public void gotolast(ActionEvent event) throws IOException 
+	{
+        user p=current;
+	      if(p.getUtype()=='s')
+	      {
+			  Parent root = FXMLLoader.load(getClass().getResource("/application/homepage.fxml"));
+			  Scene scene = new Scene(root);
+			  Main.primaryStage.setScene(scene);
+	    	  
+	      }
+	      else if(p.getUtype()=='f')
+	      {
+			  Parent root = FXMLLoader.load(getClass().getResource("/application/homepage2.fxml"));
+			  Scene scene = new Scene(root);
+			  Main.primaryStage.setScene(scene);
+	      }
+	      else
+	      {
+			  Parent root = FXMLLoader.load(getClass().getResource("/application/homepage3.fxml"));
+			  Scene scene = new Scene(root);
+			  Main.primaryStage.setScene(scene);
+	      }
+	}
 	
 	
 	
@@ -683,6 +830,90 @@ public class Controller implements Initializable {
         a.showAndWait();
 	}
 	
-	
+	@FXML
+	private Button jbtn1;
+	@FXML TableView<ObservableList<String>> tableView;
+	public void course(ActionEvent event) throws IOException {
+		
+	 String csvFile = "C:\\Users\\Raghav\\workspace\\AP_PROJ\\src\\application\\courses\\courses.csv";
+     String line = "";
+     String delimeter = ",";
+     ArrayList<String[]> ll=new ArrayList<String[]>();
+     try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
 
+         while ((line = br.readLine()) != null) {
+
+             String[] c = line.split(delimeter);
+             try {
+             
+             course add=new course(c[0],c[1],c[2],c[3],c[4],c[5],c[6],c[7],c[8],c[9],c[10],c[11],c[12],c[13],c[14]);
+             course.coursemap.put(c[2],add);
+             String s=((c[0]+","+c[2]+","+c[3]+","+c[4]+","+c[5]+","+c[6]+","+c[7]+","+c[8]+","+c[9]+","+c[10]+","+c[11]+","+c[12]+","+c[13]+","+c[14]));
+             ll.add(s.split(","));
+             }
+             catch(Exception e){
+            	 break;
+             }
+         }
+
+     } catch (Exception e) {
+         e.printStackTrace();
+     }
+     //System.out.println(ll.get(0)[1]);
+	
+		
+	    String rows[] = null;
+	    String columnvals[] = null;
+
+	    ArrayList<String> columns = new ArrayList<String>();
+	    ObservableList<ObservableList<String>> coursesfulldata = FXCollections.observableArrayList();
+
+	       
+	             
+	                int i = 0;
+
+	                while ((i<ll.size())) {
+	                	try {
+	                    if (i < 1) {
+	                        rows = ll.get(i);
+	                        for (String w : rows) {
+	                            columns.add(w);
+
+	                        }
+	                        for (int ii = 0; ii < columns.size(); ii++) {
+	                            final int finalIdx = ii;
+	                            TableColumn<ObservableList<String>, String> column = new TableColumn<>(columns.get(ii));
+	                            //System.out.println(finalIdx+" "+columns);
+	                            if(finalIdx<15) {
+	                            	tableView.setColumnResizePolicy((param) -> true );
+	                            column.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().get(finalIdx)));
+	                            }
+
+	                            tableView.getColumns().add(column);
+	                        }
+
+	                    } else {
+	                        ObservableList<String> row = FXCollections.observableArrayList();
+	                        row.clear();
+	                        columnvals =  ll.get(i);
+	                        for (String item : columnvals) {
+	                            row.add(item);
+	                        }
+	                        coursesfulldata.add(row);
+	                    }
+	                    i++;
+
+	                }
+	                	
+	                	catch (Exception e) {
+	    	                ;
+	    	            }
+
+	                	
+	                
+	                tableView.setItems(coursesfulldata);
+
+	            } 
+	
+	}
 }
