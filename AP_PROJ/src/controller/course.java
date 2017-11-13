@@ -11,13 +11,13 @@ public class course implements Serializable {
 	private String acronym;
 	private String code;
 	private String credits;
-	private String mon;
-	private String tues;
-	private String wed;
-	private String thurs;
-	private String fri;
-	private String tut;
-	private String lab;
+	private slot mon;
+	private slot tues;
+	private slot wed;
+	private slot thurs;
+	private slot fri;
+	private ArrayList<slot> tut=new ArrayList<slot>();
+	private slot lab;
 
 	public course(String type,String name,String code,String instructor,String credits,String acronym,String monday,String tuesday,String wednesday,String thursday,String friday,String tut,String lab,String pre,String post)
 	{
@@ -28,13 +28,60 @@ public class course implements Serializable {
 		this.preReq=pre;
 		this.post=post;
 		this.instr=instructor;
-		this.mon=monday;
-		tues=tuesday;
-		wed=wednesday;
-		thurs=thursday;
-		fri=friday;
-		this.tut=tut;
-		this.lab=lab;
+		
+		String[] a=monday.split("\\s+");
+		if(a.length>0) {
+		this.mon=new slot(a[0],a[1],1,acronym,a[2]);}
+		 a=tuesday.split("\\s+");
+		 if(a.length>1) {this.tues=new slot(a[0],a[1],2,acronym,a[2]);}
+		 a=wednesday.split("\\s+");
+		 if(a.length>1) {
+		this.wed=new slot(a[0],a[1],3,acronym,a[2]);}
+		a=thursday.split("\\s+");
+		if(a.length>1) {this.thurs=new slot(a[0],a[1],4,acronym,a[2]);}
+		 a=friday.split("\\s+");
+		 if(a.length>1) {this.fri=new slot(a[0],a[1],5,acronym,a[2]);}
+		a=tut.split("\\s+");
+		if(a.length>1) {
+			int d=1;
+			if(a[0].equals("Monday")) {
+				d=1;
+			}
+			else if(a[0].equals("Tuesday")) {
+				d=2;
+			}
+			else if(a[0].equals("Wednesday")) {
+				d=3;
+			}
+			else if(a[0].equals("Thursday")) {
+				d=4;
+			}
+			else if(a[0].equals("Friday")) {
+				d=5;
+			}
+			
+		this.tut.add(new slot(a[1],a[2],d,acronym,a[3]));
+		if (a.length>6) {
+		d=1;
+		if(a[5].equals("Monday")) {
+			d=1;
+		}
+		else if(a[5].equals("Tuesday")) {
+			d=2;
+		}
+		else if(a[5].equals("Wednesday")) {
+			d=3;
+		}
+		else if(a[5].equals("Thursday")) {
+			d=4;
+		}
+		else if(a[5].equals("Friday")) {
+			d=5;
+		}
+		this.tut.add(new slot(a[6],a[7],d,acronym,a[8]));
+		}}
+		if(acronym.equals("AP")) {
+		this.lab=new slot("12:00","13:00",4,acronym,"L21;L22;L23");}
 		
 	}
 	
@@ -62,25 +109,25 @@ public class course implements Serializable {
 	public String getCredits() {
 		return credits;
 	}
-	public String getMon() {
+	public slot getMon() {
 		return mon;
 	}
-	public String getTues() {
+	public slot getTues() {
 		return tues;
 	}
-	public String getWed() {
+	public slot getWed() {
 		return wed;
 	}
-	public String getThurs() {
+	public slot getThurs() {
 		return thurs;
 	}
-	public String getFri() {
+	public slot getFri() {
 		return fri;
 	}
-	public String getTut() {
+	public ArrayList<slot> getTut() {
 		return tut;
 	}
-	public String getLab() {
+	public slot getLab() {
 		return lab;
 	}
 	public String getPre() {
