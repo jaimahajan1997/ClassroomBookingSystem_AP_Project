@@ -106,6 +106,11 @@ public class Controller implements Initializable {
 		 roomno.setItems(roomchoice);
 		 day.setValue("Monday");
 		 day.setItems(daychoice);
+		 roomno2.setValue("C01");
+		 roomno2.setItems(roomchoice);
+		 day2.setValue("Monday");
+		 day2.setItems(daychoice);
+		 
 		
 	}
 	@FXML
@@ -511,6 +516,62 @@ public class Controller implements Initializable {
 			
 		}
 	}
+	
+	//BOOK A ROOM
+	@FXML
+	private Button bookroom;
+	@FXML
+	private ChoiceBox<String> roomno2=new ChoiceBox<String>();
+	@FXML
+	private TextField purpose2;
+	@FXML
+	private TextField starttime2;
+	@FXML
+	private TextField endtime2;
+	@FXML
+	private ChoiceBox<String> day2=new ChoiceBox<String>();
+	public void bookmyroom(ActionEvent event) throws IOException 
+	{
+		if(endtime2.getText().equals("") || starttime2.getText().equals("")|| purpose2.getText().equals("") )
+		{
+			showerrorbox("All Fields Mandatory","Please fill all fields");
+		}
+		else
+		{
+			try
+			{
+				int a=Integer.parseInt(starttime.getText());
+				int b=Integer.parseInt(endtime.getText());
+				if(a>=2400 || b>=2400 || a%100>59 || b%100>59)
+				{
+					showerrorbox("Time Format Error","Time must be between 0000 and 2359.");
+				}
+				else
+				{
+					if(a>=b)
+					{
+						showerrorbox("Duration Error","Minimum Duration is 30 mins.");
+					}
+					else
+					{
+							//CHECK FOR CLASH AND THEN BOOK
+					}
+				}
+				
+				
+				
+			}
+			catch(Exception e)
+			{
+				showerrorbox("Illegal Time","Please enter time in given format");
+			}
+
+			
+		}
+		
+	}
+	
+	
 	
 	
 	
