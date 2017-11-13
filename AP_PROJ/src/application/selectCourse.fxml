@@ -3,8 +3,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -16,13 +14,13 @@
             <Font name="Colonna MT" size="68.0" />
          </font>
       </Label>
-      <TextField layoutX="259.0" layoutY="323.0" prefHeight="44.0" prefWidth="489.0" promptText="Course Code" />
-      <Button layoutX="322.0" layoutY="386.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="129.0" text="Add">
+      <TextField fx:id="addordrop" layoutX="259.0" layoutY="323.0" prefHeight="44.0" prefWidth="489.0" promptText="Course Code" />
+      <Button fx:id="add" layoutX="322.0" layoutY="386.0" mnemonicParsing="false" onAction="#addcourse" prefHeight="44.0" prefWidth="129.0" text="Add">
          <font>
             <Font name="Verdana" size="20.0" />
          </font>
       </Button>
-      <Button layoutX="569.0" layoutY="386.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="129.0" text="Drop">
+      <Button fx:id="drop" layoutX="569.0" layoutY="386.0" mnemonicParsing="false" onAction="#dropcourse" prefHeight="44.0" prefWidth="129.0" text="Drop">
          <font>
             <Font name="Verdana" size="20.0" />
          </font>
