@@ -4,6 +4,7 @@ import java.util.*;
 public class user implements Serializable
 {
 	public static Map<String,user> userList=new HashMap<String,user>();
+        public ArrayList<String> myCourses=new ArrayList<String>();
 	private String fname;
 	private String lname;
 	private String userID;
