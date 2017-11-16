@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="540.0" prefWidth="717.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controller">
+   <children>
+      <Label layoutX="134.0" layoutY="76.0" prefHeight="134.0" prefWidth="870.0" text="View Room Booking" textFill="#212121">
+         <font>
+            <Font name="Verdana" size="64.0" />
+         </font>
+      </Label>
+      <MenuButton layoutX="413.0" layoutY="246.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="167.0" text="Select Room">
+        <items>
+          <MenuItem mnemonicParsing="false" text="C01" />
+          <MenuItem mnemonicParsing="false" text="C02" />
+                    <MenuItem mnemonicParsing="false" text="C03" />
+                              <MenuItem mnemonicParsing="false" text="C11" />
+                                        <MenuItem mnemonicParsing="false" text="C12" />
+                                        <MenuItem mnemonicParsing="false" text="C13" />
+        </items>
+         <font>
+            <Font name="Verdana" size="18.0" />
+         </font>
+      </MenuButton>
+      <Button fx:id="btn27" layoutX="444.0" layoutY="373.0" mnemonicParsing="false" onAction="#classroomavail" text="Check">
+         <font>
+            <Font name="Verdana" size="24.0" />
+         </font>
+      </Button>
+      <Label layoutX="201.0" layoutY="304.0" prefHeight="26.0" prefWidth="606.0" style="-fx-background-color: #ffffff;" text="     THE BOOKINGS FOR THE NEXT WEEK ARE DISPLAYED">
+         <font>
+            <Font name="Verdana" size="20.0" />
+         </font>
+      </Label>
+      <Button fx:id="goback" layoutX="826.0" layoutY="58.0" mnemonicParsing="false" onAction="#gotolast" prefHeight="17.0" prefWidth="86.0" text="Back">
+         <font>
+            <Font name="Verdana" size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
